@@ -1,0 +1,1314 @@
+/* CSS RESET & FONT IMPORT */
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;700&display=swap");
+
+:root {
+  --bg-color: #fdf2f8;
+  --primary-color: #f8bbd9;
+  --secondary-color: #e0e7ff;
+  --accent-color: #a7f3d0;
+  --text-color: #6b7280;
+  --envelope-color: #fce7f3;
+  --envelope-flap-color: #f3e8ff;
+  --letter-color: #ffffff;
+  --lavender: #e0e7ff;
+  --mint: #a7f3d0;
+  --soft-pink: #fce7f3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(
+    135deg,
+    var(--bg-color) 0%,
+    var(--soft-pink) 25%,
+    var(--lavender) 50%,
+    var(--mint) 75%,
+    var(--bg-color) 100%
+  );
+  background-size: 400% 400%;
+  -webkit-animation: gradientShift 8s ease infinite;
+  animation: gradientShift 8s ease infinite;
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle at 20% 80%, rgba(248, 187, 217, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(224, 231, 255, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(167, 243, 208, 0.3) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+@-webkit-keyframes gradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes gradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* CSS cho bánh sinh nhật từ CodePen */
+.cake-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.cake-container:hover {
+  transform: scale(1.05);
+}
+
+@-webkit-keyframes flicker {
+  0% {
+    transform: scale(1) rotate(-2deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1) rotate(2deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(0.9) rotate(-1deg);
+    opacity: 1;
+  }
+}
+
+@keyframes flicker {
+  0% {
+    transform: scale(1) rotate(-2deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1) rotate(2deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(0.9) rotate(-1deg);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes kawaiGlow {
+  0% {
+    -webkit-filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.25));
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.25));
+  }
+  100% {
+    -webkit-filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.25))
+      drop-shadow(0 0 40px rgba(255, 105, 180, 0.4)) drop-shadow(0 0 60px rgba(255, 182, 193, 0.3));
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.25))
+      drop-shadow(0 0 40px rgba(255, 105, 180, 0.4)) drop-shadow(0 0 60px rgba(255, 182, 193, 0.3));
+  }
+}
+
+@keyframes kawaiGlow {
+  0% {
+    -webkit-filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.25));
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.25));
+  }
+  100% {
+    -webkit-filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.25))
+      drop-shadow(0 0 40px rgba(255, 105, 180, 0.4)) drop-shadow(0 0 60px rgba(255, 182, 193, 0.3));
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.25))
+      drop-shadow(0 0 40px rgba(255, 105, 180, 0.4)) drop-shadow(0 0 60px rgba(255, 182, 193, 0.3));
+  }
+}
+
+@-webkit-keyframes kawaiGlowHover {
+  0% {
+    -webkit-filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.3))
+      drop-shadow(0 0 50px rgba(255, 105, 180, 0.7)) drop-shadow(0 0 80px rgba(255, 182, 193, 0.5));
+    filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.3))
+      drop-shadow(0 0 50px rgba(255, 105, 180, 0.7)) drop-shadow(0 0 80px rgba(255, 182, 193, 0.5));
+  }
+  100% {
+    -webkit-filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.3))
+      drop-shadow(0 0 70px rgba(255, 105, 180, 0.9)) drop-shadow(0 0 100px rgba(255, 215, 0, 0.6))
+      drop-shadow(0 0 120px rgba(255, 182, 193, 0.7));
+    filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.3))
+      drop-shadow(0 0 70px rgba(255, 105, 180, 0.9)) drop-shadow(0 0 100px rgba(255, 215, 0, 0.6))
+      drop-shadow(0 0 120px rgba(255, 182, 193, 0.7));
+  }
+}
+
+@keyframes kawaiGlowHover {
+  0% {
+    -webkit-filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.3))
+      drop-shadow(0 0 50px rgba(255, 105, 180, 0.7)) drop-shadow(0 0 80px rgba(255, 182, 193, 0.5));
+    filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.3))
+      drop-shadow(0 0 50px rgba(255, 105, 180, 0.7)) drop-shadow(0 0 80px rgba(255, 182, 193, 0.5));
+  }
+  100% {
+    -webkit-filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.3))
+      drop-shadow(0 0 70px rgba(255, 105, 180, 0.9)) drop-shadow(0 0 100px rgba(255, 215, 0, 0.6))
+      drop-shadow(0 0 120px rgba(255, 182, 193, 0.7));
+    filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.3))
+      drop-shadow(0 0 70px rgba(255, 105, 180, 0.9)) drop-shadow(0 0 100px rgba(255, 215, 0, 0.6))
+      drop-shadow(0 0 120px rgba(255, 182, 193, 0.7));
+  }
+}
+
+@-webkit-keyframes sparkle {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.3) rotate(180deg);
+    opacity: 1;
+  }
+}
+
+@keyframes sparkle {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.3) rotate(180deg);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes heartFloat {
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-10px) scale(1.2);
+    opacity: 1;
+  }
+}
+
+@keyframes heartFloat {
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-10px) scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* CONTAINER STYLING */
+.step {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.step.active {
+  display: flex;
+  overflow: auto;
+}
+
+/* ===== STEP 1: ENVELOPE ===== */
+.envelope-container {
+  cursor: pointer;
+  -webkit-animation: pulse 2s infinite;
+  animation: pulse 2s infinite;
+  position: relative;
+}
+
+.envelope-container::before {
+  content: "✨";
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  font-size: 1.5rem;
+  -webkit-animation: sparkle 2s infinite;
+  animation: sparkle 2s infinite;
+}
+
+.envelope-container::after {
+  content: "💖";
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  font-size: 1.2rem;
+  -webkit-animation: heartbeat 1.5s infinite;
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes sparkle {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.2) rotate(180deg);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.envelope {
+  position: relative;
+  width: 300px;
+  height: 200px;
+}
+
+.envelope-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--envelope-color);
+  border-radius: 10px;
+}
+
+.envelope-flap {
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  background-color: var(--envelope-flap-color);
+  top: 0;
+  left: 0;
+  -webkit-clip-path: polygon(0 0, 100% 0, 50% 100%);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top;
+  transition: transform 0.5s ease-in-out;
+}
+
+.envelope-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--envelope-color);
+  top: 0;
+  left: 0;
+  -webkit-clip-path: polygon(0 100%, 100% 100%, 100% 50%, 50% 100%, 0 50%);
+  clip-path: polygon(0 100%, 100% 100%, 100% 50%, 50% 100%, 0 50%);
+}
+
+.envelope-seal {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: var(--primary-color);
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(248, 187, 217, 0.4);
+}
+
+.envelope-seal::before {
+  content: "💕";
+  font-size: 1.5rem;
+  -webkit-animation: sealPulse 2s infinite;
+  animation: sealPulse 2s infinite;
+}
+
+@-webkit-keyframes sealPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes sealPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.envelope-container.open .envelope-flap {
+  transform: rotateX(180deg);
+}
+
+@-webkit-keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* ===== STEP 2: LETTER ===== */
+.letter-container {
+  text-align: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s 0.5s ease, transform 0.5s 0.5s ease;
+}
+
+.letter-container.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.letter {
+  width: 320px;
+  max-width: 90vw;
+  background-color: var(--letter-color);
+  color: var(--text-color);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(248, 187, 217, 0.3);
+  border: 3px solid var(--primary-color);
+  position: relative;
+}
+
+.letter::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: linear-gradient(45deg, var(--primary-color), var(--lavender), var(--mint));
+  border-radius: 25px;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+.letter p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+#unfold-button {
+  padding: 12px 25px;
+  background: linear-gradient(45deg, var(--primary-color), var(--lavender));
+  color: var(--text-color);
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(248, 187, 217, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+#unfold-button::before {
+  content: "🌸";
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.9rem;
+}
+
+#unfold-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(248, 187, 217, 0.6);
+  background: linear-gradient(45deg, var(--lavender), var(--mint));
+}
+
+/* ===== STEP 3: FINAL CARD ===== */
+.final-card-container {
+  -webkit-animation: fadeIn 1s ease-in-out;
+  animation: fadeIn 1s ease-in-out;
+  max-width: 90%;
+  text-align: center;
+  position: relative;
+}
+
+.final-card-container::before {
+  content: "🌟";
+  position: absolute;
+  top: 100px;
+  left: 10%;
+  font-size: 2rem;
+  -webkit-animation: float 3s ease-in-out infinite;
+  animation: float 3s ease-in-out infinite;
+}
+
+.final-card-container::after {
+  content: "🦋";
+  position: absolute;
+  top: 80px;
+  right: 15%;
+  font-size: 1.8rem;
+  animation: float 2.5s ease-in-out infinite reverse;
+}
+
+@-webkit-keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.greeting {
+  font-weight: 700;
+  padding: 16px;
+  font-family: "Pacifico", cursive;
+  font-size: 3rem;
+  background: linear-gradient(45deg, 
+    #e91e63,  /* Darker pink from var(--primary-color) */
+    #6366f1,  /* Darker lavender from var(--lavender) */
+    #059669   /* Darker mint from var(--mint) */
+  );
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: shimmer 3s ease-in-out infinite;
+  animation: shimmer 3s ease-in-out infinite;
+  margin: 0;
+  text-shadow: 0 0 30px rgba(248, 187, 217, 0.5);
+
+}
+
+@-webkit-keyframes shimmer {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes shimmer {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  background-color: var(--accent-color);
+  width: 3px;
+  -webkit-animation: blink 1s step-end infinite;
+  animation: blink 1s step-end infinite;
+  margin-left: 5px;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes blink {
+  from,
+  to {
+    background-color: transparent;
+  }
+  50% {
+    background-color: var(--accent-color);
+  }
+}
+
+@keyframes blink {
+  from,
+  to {
+    background-color: transparent;
+  }
+  50% {
+    background-color: var(--accent-color);
+  }
+}
+
+/* ===== CAKE & BALLOONS ===== */
+.cake {
+  position: relative;
+  width: 350px;
+  height: 250px;
+  margin: 50px auto 20px;
+  -webkit-filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.25));
+}
+
+/* Thêm hiệu ứng lấp lánh cho bánh */
+.cake::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.8) 0%, transparent 2%),
+    radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.6) 0%, transparent 2%),
+    radial-gradient(circle at 20% 70%, rgba(255, 255, 255, 0.7) 0%, transparent 2%),
+    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.5) 0%, transparent 2%);
+  -webkit-animation: sparkleEffect 3s ease-in-out infinite;
+  animation: sparkleEffect 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 5;
+}
+
+@-webkit-keyframes sparkleEffect {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes sparkleEffect {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Hiệu ứng cho nến khi hover */
+.cake:hover .flame {
+  -webkit-animation: flickerIntense 0.3s ease-in-out infinite alternate;
+  animation: flickerIntense 0.3s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes flickerIntense {
+  0% {
+    transform: scale(1.2) rotate(-3deg);
+    opacity: 1;
+    -webkit-filter: brightness(1.2);
+    filter: brightness(1.2);
+  }
+  50% {
+    transform: scale(1.4) rotate(3deg);
+    opacity: 0.9;
+    -webkit-filter: brightness(1.5);
+    filter: brightness(1.5);
+  }
+  100% {
+    transform: scale(1.1) rotate(-2deg);
+    opacity: 1;
+    -webkit-filter: brightness(1.3);
+    filter: brightness(1.3);
+  }
+}
+
+@keyframes flickerIntense {
+  0% {
+    transform: scale(1.2) rotate(-3deg);
+    opacity: 1;
+    -webkit-filter: brightness(1.2);
+    filter: brightness(1.2);
+  }
+  50% {
+    transform: scale(1.4) rotate(3deg);
+    opacity: 0.9;
+    -webkit-filter: brightness(1.5);
+    filter: brightness(1.5);
+  }
+  100% {
+    transform: scale(1.1) rotate(-2deg);
+    opacity: 1;
+    -webkit-filter: brightness(1.3);
+    filter: brightness(1.3);
+  }
+}
+
+/* Đĩa bánh - màu nâu đẹp hơn */
+.plate {
+  width: 400px;
+  height: 30px;
+  background: linear-gradient(135deg, #8b4513 0%, #cd853f 30%, #d2691e 70%, #a0522d 100%);
+  position: absolute;
+  bottom: -15px;
+  left: -25px;
+  border-radius: 50%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), inset 0 4px 10px rgba(255, 255, 255, 0.3),
+    inset 0 -2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Thân bánh chính - màu hồng gradient đẹp */
+.cake-body {
+  position: absolute;
+  width: 350px;
+  height: 140px;
+  background: linear-gradient(135deg, #ff69b4 0%, #ff1493 30%, #e91e63 70%, #c2185b 100%);
+  border-radius: 25px 25px 15px 15px;
+  bottom: 15px;
+  left: 0;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3), inset 0 6px 15px rgba(255, 255, 255, 0.4),
+    inset 0 -6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Lớp kem trắng trên đỉnh */
+.icing {
+  position: absolute;
+  width: 350px;
+  height: 50px;
+  background: linear-gradient(135deg, #ffffff 0%, #fffef7 50%, #f8f8ff 100%);
+  bottom: 140px;
+  left: 0;
+  border-radius: 25px 25px 0 0;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2), inset 0 3px 10px rgba(255, 255, 255, 0.9),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 5 Nến nhiều màu */
+.candle {
+  position: absolute;
+  width: 14px;
+  height: 50px;
+  border-radius: 7px 7px 0 0;
+  bottom: 190px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), inset 2px 2px 6px rgba(255, 255, 255, 0.4),
+    inset -1px -1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.candle1 {
+  background: linear-gradient(135deg, #ff69b4 0%, #ff1493 50%, #e91e63 100%);
+  left: 70px;
+}
+.candle2 {
+  background: linear-gradient(135deg, #00bfff 0%, #1e90ff 50%, #0080ff 100%);
+  left: 120px;
+}
+.candle3 {
+  background: linear-gradient(135deg, #ffff00 0%, #ffd700 50%, #ffb347 100%);
+  left: 170px;
+}
+.candle4 {
+  background: linear-gradient(135deg, #32cd32 0%, #228b22 50%, #006400 100%);
+  left: 220px;
+}
+.candle5 {
+  background: linear-gradient(135deg, #ff4500 0%, #dc143c 50%, #b22222 100%);
+  left: 270px;
+}
+
+/* Ngọn lửa */
+.flame {
+  position: absolute;
+  width: 8px;
+  height: 14px;
+  background: radial-gradient(ellipse at center, #ffff00 0%, #ff8c00 40%, #ff4500 80%);
+  top: -14px;
+  left: 3px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  -webkit-animation: flicker 1.5s ease-in-out infinite;
+  animation: flicker 1.5s ease-in-out infinite;
+  box-shadow: 0 0 8px rgba(255, 165, 0, 0.8), 0 0 15px rgba(255, 69, 0, 0.6);
+}
+
+.flame1 {
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+}
+.flame2 {
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+}
+.flame3 {
+  -webkit-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
+.flame4 {
+  -webkit-animation-delay: 0.9s;
+  animation-delay: 0.9s;
+}
+.flame5 {
+  -webkit-animation-delay: 1.2s;
+  animation-delay: 1.2s;
+}
+
+@keyframes flicker {
+  0%,
+  100% {
+    transform: scaleY(1) scaleX(1);
+    opacity: 1;
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.8), 0 0 20px rgba(255, 69, 0, 0.6);
+  }
+  50% {
+    transform: scaleY(0.8) scaleX(1.2);
+    opacity: 0.9;
+    box-shadow: 0 0 15px rgba(255, 165, 0, 1), 0 0 25px rgba(255, 69, 0, 0.8);
+  }
+}
+
+/* Dâu tây lớn trên đỉnh bánh */
+.big-strawberry {
+  position: absolute;
+  width: 50px;
+  height: 55px;
+  background: linear-gradient(135deg, #ff6b6b 0%, #dc143c 70%, #b22222 100%);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  bottom: 190px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: inset 4px 4px 10px rgba(255, 255, 255, 0.4), 0 8px 20px rgba(0, 0, 0, 0.3);
+  -webkit-animation: strawberryBounce 3s ease-in-out infinite;
+  animation: strawberryBounce 3s ease-in-out infinite;
+}
+
+.big-strawberry::before {
+  content: "";
+  position: absolute;
+  width: 55px;
+  height: 15px;
+  background: linear-gradient(135deg, #32cd32 0%, #228b22 50%, #006400 100%);
+  top: -8px;
+  left: -2.5px;
+  border-radius: 0 0 50% 50%;
+  box-shadow: inset 0 -3px 5px rgba(0, 0, 0, 0.2), 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.big-strawberry::after {
+  content: "• • • • • • • • • •";
+  position: absolute;
+  color: #ffff99;
+  font-size: 7px;
+  line-height: 7px;
+  top: 10px;
+  left: 6px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+@-webkit-keyframes strawberryBounce {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0px);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-8px);
+  }
+}
+
+@keyframes strawberryBounce {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0px);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-8px);
+  }
+}
+
+.balloon {
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  background: radial-gradient(ellipse at 30% 20%, rgba(255, 255, 255, 0.9), transparent 50%),
+    linear-gradient(135deg, var(--primary-color) 0%, #f472b6 50%, #ec4899 100%);
+  border-radius: 50%;
+  bottom: -100px;
+  opacity: 0.75;
+  -webkit-animation: balloonFloat 12s linear infinite;
+  animation: balloonFloat 12s linear infinite;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12), inset -5px -5px 15px rgba(0, 0, 0, 0.08),
+    inset 5px 5px 15px rgba(255, 255, 255, 0.4);
+  transform-style: preserve-3d;
+  -webkit-filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.08));
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.08));
+}
+
+.balloon:nth-child(2n) {
+  background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.9), transparent 50%),
+    linear-gradient(135deg, #a5b4fc 0%, #818cf8 50%, #6366f1 100%);
+  -webkit-animation-delay: -2s;
+  animation-delay: -2s;
+  width: 70px;
+  height: 70px;
+}
+
+.balloon:nth-child(3n) {
+  background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.9), transparent 50%),
+    linear-gradient(135deg, #86efac 0%, #4ade80 50%, #22c55e 100%);
+  -webkit-animation-delay: -4s;
+  animation-delay: -4s;
+  width: 73px;
+  height: 73px;
+}
+
+.balloon:nth-child(4n) {
+  background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.9), transparent 50%),
+    linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+  -webkit-animation-delay: -6s;
+  animation-delay: -6s;
+  width: 67px;
+  height: 67px;
+}
+
+.balloon:nth-child(5n) {
+  background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.9), transparent 50%),
+    linear-gradient(135deg, #c084fc 0%, #a855f7 50%, #9333ea 100%);
+  -webkit-animation-delay: -8s;
+  animation-delay: -8s;
+  width: 71px;
+  height: 71px;
+}
+
+.balloon:nth-child(6n) {
+  background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.9), transparent 50%),
+    linear-gradient(135deg, #fb7185 0%, #f43f5e 50%, #e11d48 100%);
+  -webkit-animation-delay: -10s;
+  animation-delay: -10s;
+  width: 69px;
+  height: 69px;
+}
+
+.balloon::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 70px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(200, 200, 200, 0.6) 50%,
+    rgba(150, 150, 150, 0.4) 100%
+  );
+  left: 50%;
+  top: 75px;
+  transform: translateX(-50%);
+  box-shadow: 1px 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.balloon::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 4px;
+  background: linear-gradient(135deg, #333 0%, #666 100%);
+  border-radius: 50%;
+  left: 50%;
+  bottom: -2px;
+  transform: translateX(-50%);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+@-webkit-keyframes balloonFloat {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.75;
+  }
+  90% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateY(-110vh) translateX(0);
+    opacity: 0;
+  }
+}
+
+/* Animation dao động nhẹ */
+@-webkit-keyframes balloonSway {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(8px) rotate(1deg);
+  }
+  75% {
+    transform: translateX(-8px) rotate(-1deg);
+  }
+}
+
+@keyframes balloonSway {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(8px) rotate(1deg);
+  }
+  75% {
+    transform: translateX(-8px) rotate(-1deg);
+  }
+}
+
+@keyframes balloonFloat {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.75;
+  }
+  90% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateY(-110vh) translateX(0);
+    opacity: 0;
+  }
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 600px) {
+  .name {
+    font-size: 3rem;
+  }
+  .wish-message {
+    font-size: 1rem;
+  }
+  .cake {
+    transform: scale(0.8);
+  }
+}
+
+@-webkit-keyframes rise {
+  to {
+    transform: translateY(-110vh);
+  }
+}
+
+@keyframes rise {
+  to {
+    transform: translateY(-110vh);
+  }
+}
+
+/* Hiệu ứng hover cho bóng bay */
+.balloon:hover {
+  transform: scale(1.1) !important;
+  transition: transform 0.3s ease;
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+}
+
+/* Animation nhấp nháy cho highlight */
+@-webkit-keyframes balloonGlow {
+  0%,
+  100% {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15), inset -5px -5px 15px rgba(0, 0, 0, 0.1),
+      inset 5px 5px 15px rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15), inset -5px -5px 15px rgba(0, 0, 0, 0.1),
+      inset 5px 5px 15px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.5);
+  }
+}
+@keyframes balloonGlow {
+  0%,
+  100% {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15), inset -5px -5px 15px rgba(0, 0, 0, 0.1),
+      inset 5px 5px 15px rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15), inset -5px -5px 15px rgba(0, 0, 0, 0.1),
+      inset 5px 5px 15px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.5);
+  }
+}
+
+/* Áp dụng hiệu ứng glow ngẫu nhiên */
+.balloon:nth-child(7n) {
+  -webkit-animation: balloonFloat 12s linear infinite, balloonSway 4s ease-in-out infinite,
+    balloonGlow 4s ease-in-out infinite;
+  animation: balloonFloat 12s linear infinite, balloonSway 4s ease-in-out infinite,
+    balloonGlow 4s ease-in-out infinite;
+}
+
+.balloon:nth-child(11n) {
+  -webkit-animation: balloonFloat 12s linear infinite, balloonSway 5s ease-in-out infinite,
+    balloonGlow 5s ease-in-out infinite;
+  animation: balloonFloat 12s linear infinite, balloonSway 5s ease-in-out infinite,
+    balloonGlow 5s ease-in-out infinite;
+}
+
+/* Animation cho dây bóng bay */
+@-webkit-keyframes stringWave {
+  0%,
+  100% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  20% {
+    transform: translateX(-50%) rotate(1deg);
+  }
+  40% {
+    transform: translateX(-50%) rotate(2deg);
+  }
+  60% {
+    transform: translateX(-50%) rotate(-1deg);
+  }
+  80% {
+    transform: translateX(-50%) rotate(-2deg);
+  }
+}
+@keyframes stringWave {
+  0%,
+  100% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  20% {
+    transform: translateX(-50%) rotate(1deg);
+  }
+  40% {
+    transform: translateX(-50%) rotate(2deg);
+  }
+  60% {
+    transform: translateX(-50%) rotate(-1deg);
+  }
+  80% {
+    transform: translateX(-50%) rotate(-2deg);
+  }
+}
+
+@keyframes balloonSway {
+  0%,
+  100% {
+    transform: translateX(0px);
+  }
+  25% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+}
+
+.balloon::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 50px;
+  background-color: #fff;
+  left: 50%;
+  top: 60px;
+  -webkit-animation: stringWave 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: stringWave 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Khuôn mặt kawaii */
+/* Mắt trái */
+.eye-left {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #000;
+  border-radius: 50%;
+  bottom: 85px;
+  left: 110px;
+  box-shadow: inset 5px 5px 0 rgba(255, 255, 255, 0.9);
+  -webkit-animation: blink 5s ease-in-out infinite;
+  animation: blink 5s ease-in-out infinite;
+}
+
+/* Mắt phải */
+.eye-right {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #000;
+  border-radius: 50%;
+  bottom: 85px;
+  right: 110px;
+  box-shadow: inset 5px 5px 0 rgba(255, 255, 255, 0.9);
+  -webkit-animation: blink 5s ease-in-out infinite;
+  animation: blink 5s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%,
+  92%,
+  100% {
+    transform: scaleY(1);
+  }
+  96% {
+    transform: scaleY(0.1);
+  }
+}
+
+/* Má hồng */
+.cheek-left {
+  position: absolute;
+  width: 30px;
+  height: 25px;
+  background: radial-gradient(ellipse, rgba(255, 182, 193, 0.9), transparent);
+  border-radius: 50%;
+  bottom: 70px;
+  left: 60px;
+  -webkit-animation: blush 4s ease-in-out infinite;
+  animation: blush 4s ease-in-out infinite;
+}
+
+.cheek-right {
+  position: absolute;
+  width: 30px;
+  height: 25px;
+  background: radial-gradient(ellipse, rgba(255, 182, 193, 0.9), transparent);
+  border-radius: 50%;
+  bottom: 70px;
+  right: 60px;
+  -webkit-animation: blush 4s ease-in-out infinite;
+  animation: blush 4s ease-in-out infinite;
+}
+
+@-webkit-keyframes blush {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes blush {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Miệng cười */
+.mouth {
+  position: absolute;
+  width: 35px;
+  height: 18px;
+  border: 4px solid #000;
+  border-top: none;
+  border-radius: 0 0 35px 35px;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-animation: smile 3s ease-in-out infinite;
+  animation: smile 3s ease-in-out infinite;
+}
+
+@-webkit-keyframes smile {
+  0%,
+  100% {
+    transform: translateX(-50%) scaleX(1);
+  }
+  50% {
+    transform: translateX(-50%) scaleX(1.15);
+  }
+}
+
+@keyframes smile {
+  0%,
+  100% {
+    transform: translateX(-50%) scaleX(1);
+  }
+  50% {
+    transform: translateX(-50%) scaleX(1.15);
+  }
+}

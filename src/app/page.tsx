@@ -1,65 +1,118 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { useCallback, useEffect, useState } from "react";
+import { EnvelopeStep } from "./_components/envelope-step";
+import { FinalCardStep } from "./_components/final-card-step";
+import "./birthday-vanilla.css";
+import "./globals.css";
+
+// Types
+type Step = 1 | 2;
+
+// Main component
+export default function BirthdayCard() {
+  const [currentStep, setCurrentStep] = useState<Step>(1);
+  const [musicPlayed, setMusicPlayed] = useState(false);
+
+  const handleEnvelopeClick = useCallback(() => {
+    setCurrentStep(2);
+  }, []);
+
+  const handlePlayMusic = async () => {
+    if (musicPlayed) return;
+
+    try {
+      const audio = document.getElementById("birthday-music") as HTMLAudioElement;
+      if (audio) {
+        audio.volume = 0.5;
+        await audio.play();
+        setMusicPlayed(true);
+
+        const playButton = document.getElementById("play-button");
+        if (playButton) {
+          playButton.style.display = "none";
+        }
+      }
+    } catch (error) {
+      console.log("Lỗi khi phát nhạc:", error);
+      // Hiển thị nút play cho người dùng click
+      const playButton = document.getElementById("play-button");
+      if (playButton) {
+        playButton.style.display = "block";
+      }
+    }
+  };
+
+  // Global music trigger effect
+  useEffect(() => {
+    // Trigger events để phát nhạc khi người dùng tương tác
+    const triggerEvents = ["click", "touchstart", "keydown", "mousemove", "mouseenter"];
+
+    const handleUserInteraction = () => {
+      handlePlayMusic();
+    };
+
+    // Thêm event listeners cho toàn bộ document
+    triggerEvents.forEach((event) => {
+      document.addEventListener(event, handleUserInteraction, { once: true });
+    });
+
+    // Cleanup function
+    return () => {
+      triggerEvents.forEach((event) => {
+        document.removeEventListener(event, handleUserInteraction);
+      });
+    };
+  }, [musicPlayed]);
+
+  // Cleanup balloons on unmount
+  useEffect(() => {
+    return () => {
+      const balloons = document.querySelectorAll(".balloon");
+      balloons.forEach((balloon) => balloon.remove());
+    };
+  }, []);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="birthday-container">
+      {/* Audio element */}
+      <audio id="birthday-music" loop preload="auto" style={{ display: "none" }}>
+        <source src="/hbd.mp3" type="audio/mpeg" />
+        Trình duyệt của bạn không hỗ trợ audio.
+      </audio>
+
+      {/* Nút play backup (ẩn mặc định) */}
+      <button
+        id="play-button"
+        onClick={handlePlayMusic}
+        style={{
+          display: "none",
+          position: "fixed",
+          top: "20px",
+          right: "20px",
+          zIndex: 1000,
+          padding: "10px 20px",
+          backgroundColor: "#ff69b4",
+          color: "white",
+          border: "none",
+          borderRadius: "25px",
+          cursor: "pointer",
+          fontSize: "16px",
+          boxShadow: "0 4px 15px rgba(0,0,0,0.2)",
+        }}
+      >
+        🎵 Phát nhạc
+      </button>
+
+      <div className={`step ${currentStep === 1 ? "active" : ""}`}>
+        <EnvelopeStep onEnvelopeClick={handleEnvelopeClick} />
+      </div>
+
+      {currentStep === 2 && (
+        <div className={`step ${currentStep === 2 ? "active" : ""}`}>
+          <FinalCardStep onMusicTrigger={handlePlayMusic} />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      )}
     </div>
   );
 }
