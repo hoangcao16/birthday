@@ -250,7 +250,8 @@ body::before {
 
 .step.active {
   display: flex;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 /* ===== STEP 1: ENVELOPE ===== */
