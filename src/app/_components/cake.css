@@ -218,3 +218,11 @@
     opacity: 0;
   }
 }
+
+
+@media (max-width: 600px) {
+  .wish-message {
+    font-size: 1rem;
+    margin-top: -52px;
+  }
+}
